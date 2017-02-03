@@ -28,6 +28,7 @@ extern NSString *RKResourcePboardType;
 	if(!self) return nil;
 	toolbarItems = [[NSMutableDictionary alloc] init];
 	resources = [[NSMutableArray alloc] init];
+	resourcesByType = [[NSMutableDictionary alloc] init];
 	fork = nil;
 	creator = [[@"ResK" dataUsingEncoding:NSMacOSRomanStringEncoding] retain];	// should I be calling -setCreator & -setType here instead?
 	type = [[@"rsrc" dataUsingEncoding:NSMacOSRomanStringEncoding] retain];
@@ -39,6 +40,7 @@ extern NSString *RKResourcePboardType;
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 	if(fork) DisposePtr((Ptr) fork);
 	[resources release];
+	[resourcesByType release];
 	[toolbarItems release];
 	[type release];
 	[creator release];
@@ -173,7 +175,7 @@ extern NSString *RKResourcePboardType;
 	NSString *forkName;
 	NSEnumerator *forkEnumerator = [forks objectEnumerator];
 	NSString *selectedFork = [NSString stringWithCharacters:fork->unicode length:fork->length];
-	while(forkName = [[forkEnumerator nextObject] objectForKey:@"forkname"])
+	while((forkName = [[forkEnumerator nextObject] objectForKey:@"forkname"]))
 	{
 		// check current fork is not the fork we're going to parse
 		if(![forkName isEqualToString:selectedFork])
@@ -240,8 +242,10 @@ extern NSString *RKResourcePboardType;
 	
 	[resource setRepresentedFork:forkName];
 	[resources addObject:resource];
+	
 	return YES;
 }
+
 
 -(BOOL)readResourceMap:(SInt16)fileRefNum
 {
@@ -260,7 +264,7 @@ extern NSString *RKResourcePboardType;
 			error = ResError();
 			if(error != noErr)
 			{
-				NSLog(@"Error %d reading resource map...", error);
+				NSLog(@"Error %d reading resource map...", (int32_t)error);
 				UseResFile(oldResFile);
 				return NO;
 			}
@@ -884,7 +888,10 @@ static NSString *RKExportItemIdentifier		= @"com.nickshanks.resknife.toolbar.exp
 	NSArray *selected = [outlineView selectedItems];
 	NSEnumerator *enumerator = [selected objectEnumerator];
 	while(resource = [enumerator nextObject])
-		[self openResourceUsingEditor:resource];
+	{
+		if( [resource isKindOfClass: [Resource class]] )
+			[self openResourceUsingEditor:resource];
+	}
 }
 
 - (IBAction)openResourcesInTemplate:(id)sender
@@ -894,7 +901,10 @@ static NSString *RKExportItemIdentifier		= @"com.nickshanks.resknife.toolbar.exp
 	NSArray *selected = [outlineView selectedItems];
 	NSEnumerator *enumerator = [selected objectEnumerator];
 	while(resource = [enumerator nextObject])
-		[self openResource:resource usingTemplate:[resource type]];
+	{
+		if( [resource isKindOfClass: [Resource class]] )
+			[self openResource:resource usingTemplate:[resource type]];
+	}
 }
 
 - (IBAction)openResourcesAsHex:(id)sender
@@ -903,7 +913,10 @@ static NSString *RKExportItemIdentifier		= @"com.nickshanks.resknife.toolbar.exp
 	NSArray *selected = [outlineView selectedItems];
 	NSEnumerator *enumerator = [selected objectEnumerator];
 	while(resource = [enumerator nextObject])
-		[self openResourceAsHex:resource];
+	{
+		if( [resource isKindOfClass: [Resource class]] )
+			[self openResourceAsHex:resource];
+	}
 }
 
 

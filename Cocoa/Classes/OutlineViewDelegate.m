@@ -101,6 +101,9 @@ int compareResourcesDescending(Resource *r1, Resource *r2, void *context)
 
 - (void)outlineView:(NSOutlineView *)outlineView willDisplayCell:(id)cell forTableColumn:(NSTableColumn *)tableColumn item:(id)item
 {
+	if( ![item isKindOfClass: [Resource class]] )
+		return;
+	
 	Resource *resource = (Resource *)item;
 	NSString *identifier = [tableColumn identifier];
 	

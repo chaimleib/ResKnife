@@ -11,6 +11,7 @@
 	
 	NSMutableDictionary	*toolbarItems;
 	NSMutableArray	*resources;
+	NSMutableDictionary	*resourcesByType;
 	HFSUniStr255	*fork;		// name of fork to save to, usually empty string (data fork) or 'RESOURCE_FORK' as returned from FSGetResourceForkName()
 	NSData			*creator;
 	NSData			*type;

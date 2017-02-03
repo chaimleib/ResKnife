@@ -13,7 +13,8 @@
 	IBOutlet NSWindow			*window;
 	IBOutlet ResourceDocument	*document;
 	
-	NSMutableArray	*resources;
+	NSMutableArray<Resource*>	*resources;
+	NSMutableDictionary<NSString*,NSMutableArray<Resource*>*> *resourcesByType;
 }
 
 /*!
@@ -25,6 +26,9 @@
 @method		resources
 */
 - (NSArray *)resources;
+
+
+-(NSDictionary*) resourcesByType;
 
 /*!
 @method		setResources:
