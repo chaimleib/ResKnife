@@ -30,11 +30,11 @@ UInt32 TableChecksum(UInt32 *table, UInt32 length)
 	char *start = (char *)[[resource data] bytes];
 	if (start != 0x0)
 	{
-		arch = *(OSType*)start;
-		numTables = *(UInt16*)(start+4);
-		searchRange = *(UInt16*)(start+6);
-		entrySelector = *(UInt16*)(start+8);
-		rangeShift = *(UInt16*)(start+10);
+		arch = NSSwapBigIntToHost( *(OSType*)start );
+		numTables = NSSwapBigShortToHost( *(UInt16*)(start+4) );
+		searchRange = NSSwapBigShortToHost( *(UInt16*)(start+6) );
+		entrySelector = NSSwapBigShortToHost( *(UInt16*)(start+8) );
+		rangeShift = NSSwapBigShortToHost( *(UInt16*)(start+10) );
 		UInt32 *pos = (UInt32 *)(start+12);
 /*		printf("%s\n", [[self displayName] cString]);
 		printf("  architecture: %#lx '%.4s'\n", arch, &arch);
