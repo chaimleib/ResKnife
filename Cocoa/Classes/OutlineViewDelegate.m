@@ -59,7 +59,7 @@
 @updated	2003-10-25 NGS: now uses KVC methods to obtain the strings to compare
 */
 
-int compareResourcesAscending(Resource *r1, Resource *r2, void *context)
+NSInteger compareResourcesAscending(Resource *r1, Resource *r2, void *context)
 {
 	NSString *key = (NSString *)context;
 	// compare two NSStrings (case-insensitive)
@@ -74,7 +74,7 @@ int compareResourcesAscending(Resource *r1, Resource *r2, void *context)
 @updated	2003-10-25 NGS: now uses KVC methods to obtain the strings to compare
 */
 
-int compareResourcesDescending(Resource *r1, Resource *r2, void *context)
+NSInteger compareResourcesDescending(Resource *r1, Resource *r2, void *context)
 {
 	NSString *key = (NSString *)context;
 	// compare two NSStrings (case-insensitive)
@@ -178,7 +178,7 @@ int compareResourcesDescending(Resource *r1, Resource *r2, void *context)
 /*!
 @method		draggingSourceOperationMaskForLocal:
 */
-- (unsigned int)draggingSourceOperationMaskForLocal:(BOOL)local
+- (NSDragOperation)draggingSourceOperationMaskForLocal:(BOOL)local
 {
     if(local) return NSDragOperationEvery;
     else return NSDragOperationCopy;

@@ -4,7 +4,7 @@
 #import "Resource.h"
 #import "ApplicationDelegate.h"
 #import "NSOutlineView-SelectedItems.h"
-#import "MoreFilesX.h"
+
 
 @implementation InfoWindowController
 
@@ -65,12 +65,35 @@
 	else if(currentDocument != nil)
 	{
 		// get sizes of forks as they are on disk
-		UInt64 dataLogicalSize = 0, rsrcLogicalSize = 0;
+		SInt64 dataLogicalSize = 0, rsrcLogicalSize = 0;
 		FSRef *fileRef = (FSRef *) NewPtrClear(sizeof(FSRef));
 		if(fileRef && [currentDocument fileName])
 		{
+			HFSUniStr255	resForkName = {};
+			HFSUniStr255	dataForkName = {};
+			FSGetResourceForkName( &resForkName );
+			FSGetDataForkName( &dataForkName );
+			
+			FSIORefNum	resForkRefNum = -1;
+			FSIORefNum	dataForkRefNum = -1;
+			
 			OSStatus error = FSPathMakeRef((unsigned char *)[[currentDocument fileName] fileSystemRepresentation], fileRef, nil);
-			if(!error) FSGetForkSizes(fileRef, &dataLogicalSize, &rsrcLogicalSize);
+			if( error == noErr )
+			{
+				error = FSOpenFork(fileRef, resForkName.length, resForkName.unicode, fsRdPerm, &resForkRefNum );
+				if( error == noErr )
+				{
+					error = FSGetForkSize( resForkRefNum, &rsrcLogicalSize );
+					FSCloseFork( resForkRefNum );
+				}
+				
+				error = FSOpenFork(fileRef, dataForkName.length, dataForkName.unicode, fsRdPerm, &dataForkRefNum );
+				if( error == noErr )
+				{
+					error = FSGetForkSize( dataForkRefNum, &dataLogicalSize );
+					FSCloseFork( dataForkRefNum );
+				}
+			}
 		}
 		if(fileRef) DisposePtr((Ptr) fileRef);
 		

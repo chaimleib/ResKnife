@@ -4,4 +4,7 @@
    <FileRef
       location = "group:ResKnife.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:HexFiend/HexFiend_2.xcodeproj">
+   </FileRef>
 </Workspace>

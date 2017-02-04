@@ -50,7 +50,7 @@
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(templateDataDidChange:) name:ResourceDataDidChangeNotification object:tmplResource];
 	[self readTemplate:tmplResource];	// reads (but doesn't retain) the template for this resource (TMPL resource with name equal to the passed resource's type)
 	
-	while(tmplResource = va_arg(resourceList, id))
+	while(( tmplResource = va_arg(resourceList, id) ))
 		NSLog(@"Too many params passed to -initWithResources:%@", [tmplResource description]);
 	va_end(resourceList);
 	
@@ -142,7 +142,7 @@
 	id item;
 	[dataList reloadData];
 	int row = [dataList numberOfRows];
-	while(item = [dataList itemAtRow: --row])
+	while((item = [dataList itemAtRow: --row]))
 	{
 		if([dataList isExpandable: item] && ![dataList isItemExpanded: item])
 			[dataList expandItem: item expandChildren: YES];

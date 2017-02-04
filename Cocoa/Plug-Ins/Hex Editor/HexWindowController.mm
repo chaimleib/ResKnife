@@ -1,23 +1,6 @@
 #import "HexWindowController.h"
-#import "HexTextView.h"
 #import "FindSheetController.h"
-#import "NSData-HexRepresentation.h"
 
-/*
-OSStatus Plug_InitInstance(Plug_PlugInRef plug, Plug_ResourceRef resource)
-{
-	// init function called by carbon apps
-	if(NSApplicationLoad())
-	{
-		id newResource = [NSClassFromString(@"Resource") resourceOfType:[NSString stringWithCString:length:4] andID:[NSNumber numberWithInt:] withName:[NSString stringWithCString:length:] andAttributes:[NSNumber numberWithUnsignedShort:] data:[NSData dataWithBytes:length:]];
-		if(!newResource) return paramErr;
-		id windowController = [[HexWindowController alloc] initWithResource:newResource];
-		if(!windowController) return paramErr;
-		else return noErr;
-	}
-	else return paramErr;
-}
-*/
 
 @implementation HexWindowController
 
@@ -43,6 +26,7 @@ OSStatus Plug_InitInstance(Plug_PlugInRef plug, Plug_ResourceRef resource)
 	
 	// load the window from the nib file
 	[self window];
+	
 	return self;
 }
 
@@ -50,7 +34,9 @@ OSStatus Plug_InitInstance(Plug_PlugInRef plug, Plug_ResourceRef resource)
 {
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 	[undoManager release];
-	[(id)resource release];
+	[resource release];
+	[backup release];
+	
 	[super dealloc];
 }
 
@@ -58,24 +44,8 @@ OSStatus Plug_InitInstance(Plug_PlugInRef plug, Plug_ResourceRef resource)
 {
 	[super windowDidLoad];
 	
-	{
-		// set up tab, shift-tab and enter behaviour (cannot set these in IB at the moment)
-		[hex setFieldEditor:YES];
-		[ascii setFieldEditor:YES];
-		[offset setDrawsBackground:NO];
-		[[offset enclosingScrollView] setDrawsBackground:NO];
-		
-		// from HexEditorDelegate, here until bug is fixed
-		[[NSNotificationCenter defaultCenter] addObserver:hexDelegate selector:@selector(viewDidScroll:) name:NSViewBoundsDidChangeNotification object:[[offset enclosingScrollView] contentView]];
-		[[NSNotificationCenter defaultCenter] addObserver:hexDelegate selector:@selector(viewDidScroll:) name:NSViewBoundsDidChangeNotification object:[[hex enclosingScrollView] contentView]];
-		[[NSNotificationCenter defaultCenter] addObserver:hexDelegate selector:@selector(viewDidScroll:) name:NSViewBoundsDidChangeNotification object:[[ascii enclosingScrollView] contentView]];
-	}
-	
 	// insert the resources' data into the text fields
-	[self refreshData:[resource data]];
-	CGFloat charWidth = [@"0" sizeWithAttributes: @{ NSFontAttributeName: [NSFont fontWithName: @"Courier" size: 12] }].width;
-	[[self window] setResizeIncrements:NSMakeSize((charWidth * 3.0) * kWindowStepCharsPerStep, 1)];
-	// min 346, step 224, norm 570, step 224, max 794
+	self.hexEditField.data = [resource data];
 	
 	// here because we don't want these notifications until we have a window! (Only register for notifications on the resource we're editing)
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resourceNameDidChange:) name:ResourceNameDidChangeNotification object:resource];
@@ -88,18 +58,6 @@ OSStatus Plug_InitInstance(Plug_PlugInRef plug, Plug_ResourceRef resource)
 	[self showWindow:self];
 }
 
-- (void)windowDidResize:(NSNotification *)notification
-{
-	int width = [(NSWindow *)[notification object] frame].size.width;
-	int oldBytesPerRow = bytesPerRow;
-	CGFloat charWidth = [@"0" sizeWithAttributes: @{ NSFontAttributeName: [NSFont fontWithName: @"Courier" size: 12] }].width;
-	bytesPerRow = (((width - ((charWidth * 3.0) * kWindowStepCharsPerStep) - 122) / (kWindowStepWidthPerChar * kWindowStepCharsPerStep)) + 1) * kWindowStepCharsPerStep;
-	if(bytesPerRow != oldBytesPerRow)
-		[offset	setString:[hexDelegate offsetRepresentation:[resource data]]];
-	[[hex enclosingScrollView] setFrameSize:NSMakeSize((bytesPerRow * (charWidth * 3.0)) + 5+5, [[hex enclosingScrollView] frame].size.height)];
-	[[ascii enclosingScrollView] setFrameOrigin:NSMakePoint((bytesPerRow * (charWidth * 3.0)) + 95, 20)];
-	[[ascii enclosingScrollView] setFrameSize:NSMakeSize((bytesPerRow * charWidth) + 28, [[ascii enclosingScrollView] frame].size.height)];
-}
 
 - (void)windowDidBecomeKey:(NSNotification *)notification
 {
@@ -197,7 +155,7 @@ OSStatus Plug_InitInstance(Plug_PlugInRef plug, Plug_ResourceRef resource)
 	// bug: if liveEdit is false and another editor changes backup, if we are dirty we need to ask the user whether to accept the changes from the other editor and discard our changes, or vice versa.
 	if([notification object] == (id)resource)
 	{
-		[self refreshData:[resource data]];
+		self.hexEditField.data = [resource data];
 		[self setDocumentEdited:YES];
 	}
 }
@@ -217,46 +175,6 @@ OSStatus Plug_InitInstance(Plug_PlugInRef plug, Plug_ResourceRef resource)
 	}
 }
 
-- (void)refreshData:(NSData *)data;
-{
-	// save selections
-	NSRange hexSelection = [hex selectedRange];
-	NSRange asciiSelection = [ascii selectedRange];
-	
-	// clear delegates (see HexEditorDelegate class for explanation of why)
-	id oldDelegate = [hex delegate];
-	[hex setDelegate:nil];
-	[ascii setDelegate:nil];
-	
-	// prepare attributes dictionary
-	NSMutableParagraphStyle *paragraph = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
-	[paragraph setLineBreakMode:NSLineBreakByCharWrapping];
-	NSDictionary *dictionary = [NSDictionary dictionaryWithObject:paragraph forKey:NSParagraphStyleAttributeName];
-
-	NSMutableParagraphStyle *hexParagraph = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
-	//[hexParagraph setLineBreakMode:NSLineBreakByCharWrapping];
-	NSDictionary *hexDictionary = [NSDictionary dictionaryWithObject:hexParagraph forKey:NSParagraphStyleAttributeName];
-	
-	// do stuff with data
-	[offset setString:[hexDelegate offsetRepresentation:data]];
-	if([data length] > 0)
-		[hex setString:[[data hexRepresentation] stringByAppendingString:@" "]];
-	else [hex setString:[data hexRepresentation]];
-	[ascii setString:[data asciiRepresentation]];
-	
-	// apply attributes
-	[[offset textStorage] addAttributes:dictionary range:NSMakeRange(0, [[offset textStorage] length])];
-	[[hex	 textStorage] addAttributes:hexDictionary range:NSMakeRange(0, [[hex textStorage] length])];
-	[[ascii	 textStorage] addAttributes:dictionary range:NSMakeRange(0, [[ascii textStorage] length])];
-	
-	// restore selections (this is the dumbest way to do it, but it'll do for now)
-	[hex setSelectedRange:NSIntersectionRange(hexSelection, [hex selectedRange])];
-	[ascii setSelectedRange:NSIntersectionRange(asciiSelection, [ascii selectedRange])];
-	
-	// restore delegates
-	[hex setDelegate:oldDelegate];
-	[ascii setDelegate:oldDelegate];
-}
 
 - (id)resource
 {
@@ -287,6 +205,13 @@ OSStatus Plug_InitInstance(Plug_PlugInRef plug, Plug_ResourceRef resource)
 {
 	return undoManager;
 }
+
+
+- (void)hexTextView:(HFTextView *)view didChangeProperties:(HFControllerPropertyBits)properties;
+{
+	[resource setData: view.data];
+}
+
 
 /* range conversion methods */
 

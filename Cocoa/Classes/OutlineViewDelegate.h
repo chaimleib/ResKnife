@@ -12,8 +12,8 @@
 	IBOutlet AttributesFormatter 	*attributesFormatter;
 }
 
-int compareResourcesAscending(Resource *r1, Resource *r2, void *context);
-int compareResourcesDescending(Resource *r1, Resource *r2, void *context);
+NSInteger compareResourcesAscending(Resource *r1, Resource *r2, void *context);
+NSInteger compareResourcesDescending(Resource *r1, Resource *r2, void *context);
 
 @end
 

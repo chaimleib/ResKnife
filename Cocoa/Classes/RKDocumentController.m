@@ -11,7 +11,7 @@
 	return [ResourceDocument class];
 }
 
-- (int)runModalOpenPanel:(NSOpenPanel *)openPanel forTypes:(NSArray *)extensions
+- (NSInteger)runModalOpenPanel:(NSOpenPanel *)openPanel forTypes:(NSArray *)extensions
 {
 	// set-up open panel (this happens every time, but no harm done)
 	ApplicationDelegate *appDelegate = [NSApp delegate];

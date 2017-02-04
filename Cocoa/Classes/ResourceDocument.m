@@ -63,7 +63,7 @@ extern NSString *RKResourcePboardType;
 	BOOL			succeeded = NO;
 	OSStatus		error = noErr;
 	FSRef			*fileRef = (FSRef *) NewPtrClear(sizeof(FSRef));
-	SInt16			fileRefNum = 0;
+	ResFileRefNum	fileRefNum = 0;
 	OpenPanelDelegate *openPanelDelegate = [(ApplicationDelegate *)[NSApp delegate] openPanelDelegate];
 	
 	// bug: need to handle error better here
@@ -219,7 +219,7 @@ extern NSString *RKResourcePboardType;
 	if(!buffer) return NO;
 	
 	// read fork contents into buffer, bug: assumes no errors
-	SInt16 forkRefNum;
+	FSIORefNum forkRefNum;
 	FSOpenFork(fileRef, uniForkName.length, uniForkName.unicode, fsRdPerm, &forkRefNum);
 	FSReadFork(forkRefNum, fsFromStart, 0, forkLength, buffer, &forkLength);
 	FSCloseFork(forkRefNum);
@@ -320,7 +320,7 @@ extern NSString *RKResourcePboardType;
 - (BOOL)writeToFile:(NSString *)fileName ofType:(NSString *)type
 {
 	OSStatus error = noErr;
-	SInt16 fileRefNum = 0;
+	ResFileRefNum fileRefNum = 0;
 	FSRef *parentRef	= (FSRef *) NewPtrClear(sizeof(FSRef));
 	FSRef *fileRef		= (FSRef *) NewPtrClear(sizeof(FSRef));
 	
@@ -397,7 +397,7 @@ extern NSString *RKResourcePboardType;
 		if([resource representedFork] == nil) continue;
 		unichar *uniname = (unichar *) NewPtrClear(sizeof(unichar) *256);
 		[[resource representedFork] getCharacters:uniname];
-		SInt16 forkRefNum = 0;
+		FSIORefNum forkRefNum = 0;
 		error = FSOpenFork(fileRef, [[resource representedFork] length], (UniChar *) uniname, fsWrPerm, &forkRefNum);
 		if(!error && forkRefNum)
 			error = FSWriteFork(forkRefNum, fsFromStart, 0, [[resource data] length], [[resource data] bytes], NULL);
@@ -442,7 +442,7 @@ extern NSString *RKResourcePboardType;
 		
 		// convert unicode name to pascal string
 		nameStr[0] = [[resource name] lengthOfBytesUsingEncoding:NSMacOSRomanStringEncoding];
-		BlockMoveData([[resource name] cStringUsingEncoding:NSMacOSRomanStringEncoding], &nameStr[1], nameStr[0]);
+		memmove( &nameStr[1], [[resource name] cStringUsingEncoding:NSMacOSRomanStringEncoding], nameStr[0]);
 		
 		// convert type string to ResType
 		[[resource type] getCString:resTypeStr maxLength:4];
@@ -483,30 +483,14 @@ extern NSString *RKResourcePboardType;
 
 - (void)setTypeCreatorAfterSave:(id)userInfo
 {
-	FInfo finderInfo;
-	FSRef *fileRef = (FSRef *) NewPtrClear(sizeof(FSRef));
-	FSSpec *fileSpec = (FSSpec *) NewPtrClear(sizeof(FSSpec));
-	OSStatus error = FSPathMakeRef((const UInt8 *)[[self fileName] UTF8String], fileRef, nil);
-	if(!error)
-	{
-		error = FSGetCatalogInfo(fileRef, kFSCatInfoNone, NULL, NULL, fileSpec, NULL);
-		if(!error)
-		{
-			error = FSpGetFInfo(fileSpec, &finderInfo);
-			if(!error)
-			{
-				[[self type] getBytes:&finderInfo.fdType length:4];
-				[[self creator] getBytes:&finderInfo.fdCreator length:4];
-//				NSLog(@"setting finder info to type: %X; creator: %X", finderInfo.fdType, finderInfo.fdCreator);
-				error = FSpSetFInfo(fileSpec, &finderInfo);
-				FSpGetFInfo(fileSpec, &finderInfo);
-//				NSLog(@"finder info got set to type: %X; creator: %X", finderInfo.fdType, finderInfo.fdCreator);
-			}
-			else NSLog(@"error getting Finder info. (error=%d, spec=%d, ref=%d)", error, fileSpec, fileRef);
-		}
-		else NSLog(@"error converting fsref to fsspec. (error=%d, spec=%d, ref=%d)", error, fileSpec, fileRef);
-	}
-	else NSLog(@"error making fsref from file path. (error=%d, ref=%d, path=%@)", error, fileRef, [self fileName]);
+	OSType	theType = 0;
+	OSType	theCreator = 0;
+	[[self type] getBytes: &theType length: 4];
+	[[self creator] getBytes: &theCreator length: 4];
+	
+	NSError* errorObject = nil;
+	if( ![[NSFileManager defaultManager] setAttributes: @{ NSFileHFSTypeCode: [NSNumber numberWithInt: theType], NSFileHFSCreatorCode: [NSNumber numberWithInt: theCreator] } ofItemAtPath: [self fileName] error: &errorObject] )
+		NSLog( @"Error changing type/creator code: %@", errorObject );
 }
 
 #pragma mark -
@@ -1039,15 +1023,15 @@ static NSString *RKExportItemIdentifier		= @"com.nickshanks.resknife.toolbar.exp
 
 - (void)playSoundThreadController:(NSData *)data
 {
-	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	if(data && [data length] != 0)
-	{
-		// plays sound synchronously, thread exits when sound is done playing
-		SndListPtr sndPtr = (SndListPtr) [data bytes];
-		SndPlay(nil, &sndPtr, false);
-	}
-	else NSBeep();
-	[pool release];
+//	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+//	if(data && [data length] != 0)
+//	{
+//		// plays sound synchronously, thread exits when sound is done playing
+//		SndListPtr sndPtr = (SndListPtr) [data bytes];
+//		SndPlay(nil, &sndPtr, false);
+//	}
+//	else NSBeep();
+//	[pool release];
 }
 
 /*!

@@ -5,6 +5,9 @@
 #import "ResKnifePluginProtocol.h"
 #import "ResKnifeResourceProtocol.h"
 
+#import <HexFiend/HexFiend.h>
+
+
 #define kWindowStepWidthPerChar		28
 #define kWindowStepCharsPerStep		1
 
@@ -17,13 +20,9 @@
 /* Based on HexEdit by Bill Bumgardner, Lane Roath & myself: http://hexedit.sourceforge.net/ */
 /* Some ideas, method names, and occasionally code stolen from HexEditor by Raphael Sebbe: http://raphaelsebbe.multimania.com/ */
 
-@interface HexWindowController : NSWindowController <ResKnifePluginProtocol>
+@interface HexWindowController : NSWindowController <ResKnifePluginProtocol,HFTextViewDelegate>
 {
 	IBOutlet HexEditorDelegate	*hexDelegate;
-	IBOutlet NSTextView			*offset;		// these four should be phased out whenever possible
-	IBOutlet HexTextView		*hex;			// these four should be phased out whenever possible
-	IBOutlet AsciiTextView		*ascii;			// these four should be phased out whenever possible
-	IBOutlet NSTextField		*message;		// these four should be phased out whenever possible
 	IBOutlet NSMenu				*copySubmenu;
 	IBOutlet NSMenu				*pasteSubmenu;
 	
@@ -34,6 +33,9 @@
 	int				bytesPerRow;
 	NSUndoManager   *undoManager;
 }
+
+@property (retain) IBOutlet HFTextView	*hexEditField;
+
 
 // conform to the ResKnifePluginProtocol with the inclusion of these methods
 - (id)initWithResource:(id)newResource;

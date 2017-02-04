@@ -124,7 +124,7 @@
 	}
 	else
 	{
-		#warning FIXME: This code should display a warning saying that the string in the PSTR is not MacOSRoman
+		NSLog(@"Error: The string in the PSTR is not MacOSRoman.");
 	}
 	
 	// pad to minimum length with spaces
