@@ -3,15 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 42;
+	objectVersion = 45;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		0EBA8666122CF49800FEC1AC /* NGSCategories.h in Headers */ = {isa = PBXBuildFile; fileRef = 0EBA8664122CF49800FEC1AC /* NGSCategories.h */; };
 		0EBA8667122CF49800FEC1AC /* NGSCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EBA8665122CF49800FEC1AC /* NGSCategories.m */; };
 		0EF71540122BD0D0005DF94E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0EF7153F122BD0D0005DF94E /* Localizable.strings */; };
-		3DB9D66412307A9400DDA647 /* NovaTools.plugin in Copy Plugins */ = {isa = PBXBuildFile; fileRef = E17ADBC006A2132800842474 /* NovaTools.plugin */; };
-		3DB9D6E712307F6300DDA647 /* Bitmap Editor.plugin in Copy Plugins */ = {isa = PBXBuildFile; fileRef = E18BF69D069FEA1800F076B8 /* Bitmap Editor.plugin */; };
+		3DB9D66412307A9400DDA647 /* NovaTools.plugin in Copy Plugins */ = {isa = PBXBuildFile; fileRef = E17ADBC006A2132800842474 /* NovaTools.plugin */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		3DB9D6E712307F6300DDA647 /* Bitmap Editor.plugin in Copy Plugins */ = {isa = PBXBuildFile; fileRef = E18BF69D069FEA1800F076B8 /* Bitmap Editor.plugin */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		55A464B01E4547E100BC66CB /* HexFiend.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55A464AF1E4547E100BC66CB /* HexFiend.framework */; };
 		E1193609099830D300A3A6EA /* FontDocument.nib in Resources */ = {isa = PBXBuildFile; fileRef = E1193607099830D200A3A6EA /* FontDocument.nib */; };
 		E11936660998552900A3A6EA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E11936650998552900A3A6EA /* Localizable.strings */; };
@@ -31,7 +31,7 @@
 		E119388D0999296B00A3A6EA /* ElementHEXD.h in Headers */ = {isa = PBXBuildFile; fileRef = E119388B0999296B00A3A6EA /* ElementHEXD.h */; };
 		E119388E0999296B00A3A6EA /* ElementHEXD.m in Sources */ = {isa = PBXBuildFile; fileRef = E119388C0999296B00A3A6EA /* ElementHEXD.m */; };
 		E1193949099940FD00A3A6EA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E1193947099940FD00A3A6EA /* InfoPlist.strings */; };
-		E13F837F08F13A4C00E2A5CB /* Font Editor.plugin in Copy Plugins */ = {isa = PBXBuildFile; fileRef = E18BF78B069FF23700F076B8 /* Font Editor.plugin */; };
+		E13F837F08F13A4C00E2A5CB /* Font Editor.plugin in Copy Plugins */ = {isa = PBXBuildFile; fileRef = E18BF78B069FF23700F076B8 /* Font Editor.plugin */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		E14AC2760996BF1700D293E5 /* ElementDLLG.h in Headers */ = {isa = PBXBuildFile; fileRef = E14AC2740996BF1700D293E5 /* ElementDLLG.h */; };
 		E14AC2770996BF1700D293E5 /* ElementDLLG.m in Sources */ = {isa = PBXBuildFile; fileRef = E14AC2750996BF1700D293E5 /* ElementDLLG.m */; };
 		E14AC453099702F400D293E5 /* ElementFBYT.h in Headers */ = {isa = PBXBuildFile; fileRef = E14AC451099702F300D293E5 /* ElementFBYT.h */; };
@@ -171,8 +171,8 @@
 		E1A984FE099C309400A70612 /* DisplayTMPL.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A984FD099C309300A70612 /* DisplayTMPL.png */; };
 		E1D0DB520A109A4F0011739C /* ElementKEYB.h in Headers */ = {isa = PBXBuildFile; fileRef = E1D0DB4E0A109A4E0011739C /* ElementKEYB.h */; };
 		E1D0DB530A109A4F0011739C /* ElementKEYB.mm in Sources */ = {isa = PBXBuildFile; fileRef = E1D0DB4F0A109A4E0011739C /* ElementKEYB.mm */; };
-		E1EAB19A06A20F1A0041EE35 /* Hexadecimal Editor.plugin in Copy Plugins */ = {isa = PBXBuildFile; fileRef = E18BF5A6069FEA1400F076B8 /* Hexadecimal Editor.plugin */; };
-		E1F0B65B06AD62B1007D3469 /* Template Editor.plugin in Copy Plugins */ = {isa = PBXBuildFile; fileRef = E18BF6C8069FEA1900F076B8 /* Template Editor.plugin */; };
+		E1EAB19A06A20F1A0041EE35 /* Hexadecimal Editor.plugin in Copy Plugins */ = {isa = PBXBuildFile; fileRef = E18BF5A6069FEA1400F076B8 /* Hexadecimal Editor.plugin */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		E1F0B65B06AD62B1007D3469 /* Template Editor.plugin in Copy Plugins */ = {isa = PBXBuildFile; fileRef = E18BF6C8069FEA1900F076B8 /* Template Editor.plugin */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -180,6 +180,8 @@
 			isa = PBXBuildRule;
 			compilerSpec = com.apple.compilers.gcc;
 			fileType = sourcecode.c;
+			inputFiles = (
+			);
 			isEditable = 1;
 			outputFiles = (
 			);
@@ -296,15 +298,12 @@
 		3D0ABFBC04E172F700C85300 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; path = README.txt; sourceTree = SOURCE_ROOT; };
 		3D0B38B204DEF41E005AED5E /* TemplateWindowController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TemplateWindowController.h; sourceTree = "<group>"; };
 		3D0B38B304DEF41E005AED5E /* TemplateWindowController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = TemplateWindowController.m; sourceTree = "<group>"; };
-		3D0B38B604DEF465005AED5E /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/TemplateWindow.nib; sourceTree = "<group>"; };
-		3D2EE5E204E5C56F00515930 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3D35755A04DAEB4300B8225B /* main.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3D35755C04DAEB6200B8225B /* RKEditorRegistry.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = RKEditorRegistry.h; sourceTree = "<group>"; };
 		3D35755D04DAEB6200B8225B /* RKEditorRegistry.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = RKEditorRegistry.m; sourceTree = "<group>"; };
 		3D35756004DAEB7F00B8225B /* Export.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = Export.tiff; sourceTree = "<group>"; };
 		3D3B99B804DC16A30056861E /* ICONWindowController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = ICONWindowController.m; sourceTree = "<group>"; };
 		3D3B99B904DC16A30056861E /* ICONWindowController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = ICONWindowController.h; sourceTree = "<group>"; };
-		3D3B99BD04DC16FC0056861E /* ICONWindow.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = ICONWindow.nib; path = English.lproj/ICONWindow.nib; sourceTree = "<group>"; };
 		3D4737B304E872DB00AF65FE /* ElementDLNG.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = ElementDLNG.m; sourceTree = "<group>"; };
 		3D4737B404E872DB00AF65FE /* ElementDLNG.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = ElementDLNG.h; sourceTree = "<group>"; };
 		3D4737B704E873F300AF65FE /* ElementDBYT.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = ElementDBYT.m; sourceTree = "<group>"; };
@@ -315,9 +314,25 @@
 		3D50047404EF122000F3B64D /* ElementLSTC.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = ElementLSTC.h; sourceTree = "<group>"; };
 		3D53A9FD04F171DC006651FA /* RKSupportResourceRegistry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKSupportResourceRegistry.h; sourceTree = "<group>"; };
 		3D53A9FE04F171DC006651FA /* RKSupportResourceRegistry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKSupportResourceRegistry.m; sourceTree = "<group>"; };
-		55A464AF1E4547E100BC66CB /* HexFiend.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HexFiend.framework; path = "../../Library/Developer/Xcode/DerivedData/Resknife-dixgjqkjlcchrkbcwkbhmvlbqyaw/Build/Products/Release/HexFiend.framework"; sourceTree = "<group>"; };
-		E1193608099830D300A3A6EA /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/FontDocument.nib; sourceTree = "<group>"; };
-		E11936620998551200A3A6EA /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
+		55A464AF1E4547E100BC66CB /* HexFiend.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HexFiend.framework; path = HexFiend/HexFiend.framework; sourceTree = SOURCE_ROOT; };
+		7048ED8926F07A53001B720D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7048ED8D26F07A54001B720D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7048ED8E26F07A54001B720D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7048ED9326F07A54001B720D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7048ED9526F07A54001B720D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7048ED9726F07A54001B720D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.scriptTerminology; name = en; path = ../en.lproj/ResKnife.scriptTerminology; sourceTree = "<group>"; };
+		7048ED9926F07A58001B720D /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = Base.lproj/AboutPanel.nib; sourceTree = "<group>"; };
+		7048ED9A26F07A58001B720D /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = Base.lproj/Application.nib; sourceTree = "<group>"; };
+		7048ED9B26F07A58001B720D /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = ../Base.lproj/CreateResourceSheet.nib; sourceTree = "<group>"; };
+		7048ED9C26F07A58001B720D /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = Base.lproj/InfoWindow.nib; sourceTree = "<group>"; };
+		7048ED9D26F07A58001B720D /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = Base.lproj/PrefsWindow.nib; sourceTree = "<group>"; };
+		7048ED9E26F07A58001B720D /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = Base.lproj/ResourceDocument.nib; sourceTree = "<group>"; };
+		7048ED9F26F07A59001B720D /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = Base.lproj/HexWindow.nib; sourceTree = "<group>"; };
+		7048EDA026F07A59001B720D /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = Base.lproj/FindSheet.nib; sourceTree = "<group>"; };
+		7048EDA126F07A59001B720D /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = Base.lproj/TemplateWindow.nib; sourceTree = "<group>"; };
+		7048EDA226F07A59001B720D /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = Base.lproj/FontDocument.nib; sourceTree = "<group>"; };
+		7048EDA326F07A59001B720D /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = ../Base.lproj/FontWindow.nib; sourceTree = "<group>"; };
+		7048EDA426F07A59001B720D /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = Base.lproj/ICONWindow.nib; sourceTree = "<group>"; };
 		E119367D099864AD00A3A6EA /* ElementUBYT.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = ElementUBYT.h; sourceTree = "<group>"; };
 		E119367E099864AD00A3A6EA /* ElementUBYT.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = ElementUBYT.m; sourceTree = "<group>"; };
 		E119367F099864AD00A3A6EA /* ElementULNG.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = ElementULNG.h; sourceTree = "<group>"; };
@@ -333,7 +348,6 @@
 		E119383D09991C5100A3A6EA /* Templates.rsrc */ = {isa = PBXFileReference; lastKnownFileType = archive.rsrc; path = Templates.rsrc; sourceTree = "<group>"; };
 		E119388B0999296B00A3A6EA /* ElementHEXD.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = ElementHEXD.h; sourceTree = "<group>"; };
 		E119388C0999296B00A3A6EA /* ElementHEXD.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = ElementHEXD.m; sourceTree = "<group>"; };
-		E1193948099940FD00A3A6EA /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E13F7F9808F05B5C00E2A5CB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E14AC2740996BF1700D293E5 /* ElementDLLG.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = ElementDLLG.h; sourceTree = "<group>"; };
 		E14AC2750996BF1700D293E5 /* ElementDLLG.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = ElementDLLG.m; sourceTree = "<group>"; };
@@ -349,26 +363,22 @@
 		E18BF6C8069FEA1900F076B8 /* Template Editor.plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Template Editor.plugin"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E18BF78B069FF23700F076B8 /* Font Editor.plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Font Editor.plugin"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E18BF78C069FF23800F076B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E18BF7D0069FFC7600F076B8 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = FontWindow.nib; sourceTree = "<group>"; };
 		E18BF7D1069FFC7600F076B8 /* FontWindowController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = FontWindowController.h; sourceTree = "<group>"; };
 		E18BF7D2069FFC7600F076B8 /* FontWindowController.mm */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.objcpp; path = FontWindowController.mm; sourceTree = "<group>"; };
 		E18BF94B06A00F8E00F076B8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E18BF9D706A01A2200F076B8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E18BFA3606A20B7A00F076B8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E196FEE10551AF9600FE7E58 /* Resource Type Mappings.strings */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.strings; path = "Resource Type Mappings.strings"; sourceTree = "<group>"; };
+		E196FEE10551AF9600FE7E58 /* Resource Type Mappings.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = "Resource Type Mappings.strings"; sourceTree = "<group>"; };
 		E1A984FD099C309300A70612 /* DisplayTMPL.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = DisplayTMPL.png; path = Resources/DisplayTMPL.png; sourceTree = "<group>"; };
 		E1C5E08B055D98790001A04A /* NSData-HexRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData-HexRepresentation.h"; sourceTree = "<group>"; };
 		E1C5E08F055D98D50001A04A /* NSData-HexRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData-HexRepresentation.m"; sourceTree = "<group>"; };
 		E1D0DB4E0A109A4E0011739C /* ElementKEYB.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = ElementKEYB.h; sourceTree = "<group>"; };
 		E1D0DB4F0A109A4E0011739C /* ElementKEYB.mm */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.objcpp; path = ElementKEYB.mm; sourceTree = "<group>"; };
 		F5041736036BD60801A8010A /* ResKnife.scriptSuite */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ResKnife.scriptSuite; sourceTree = "<group>"; };
-		F50DFE17036C203F01A8010A /* English */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = English; path = Cocoa/English.lproj/ResKnife.scriptTerminology; sourceTree = SOURCE_ROOT; };
 		F54625C6029174F601A8010C /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = /System/Library/Frameworks/CoreServices.framework; sourceTree = "<absolute>"; };
 		F54626490291750201A8010C /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = /System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<absolute>"; };
 		F54E6220021B6A0801A80001 /* FindSheetController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = FindSheetController.h; sourceTree = "<group>"; };
 		F54E6221021B6A0801A80001 /* FindSheetController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = FindSheetController.m; sourceTree = "<group>"; };
-		F54E6223021B6A0801A80001 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/FindSheet.nib; sourceTree = "<group>"; };
-		F54E622C021D192201A80001 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = Cocoa/English.lproj/CreateResourceSheet.nib; sourceTree = SOURCE_ROOT; };
 		F5502C4001C579FF01C57124 /* ResKnifePluginProtocol.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = ResKnifePluginProtocol.h; sourceTree = "<group>"; };
 		F5730B930159528A01000001 /* defaults.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist; path = defaults.plist; sourceTree = "<group>"; };
 		F577A8F30211CFA701A80001 /* Save.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = Save.tiff; sourceTree = "<group>"; };
@@ -407,13 +417,6 @@
 		F5B588320156D40B01000001 /* ResourceDocument.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = ResourceDocument.m; sourceTree = "<group>"; };
 		F5B588330156D40B01000001 /* SizeFormatter.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = SizeFormatter.h; sourceTree = "<group>"; };
 		F5B588340156D40B01000001 /* SizeFormatter.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = SizeFormatter.m; sourceTree = "<group>"; };
-		F5B588370156D40B01000001 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/AboutPanel.nib; sourceTree = "<group>"; };
-		F5B588390156D40B01000001 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/Application.nib; sourceTree = "<group>"; };
-		F5B5883B0156D40B01000001 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/InfoWindow.nib; sourceTree = "<group>"; };
-		F5B5883F0156D40B01000001 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/PrefsWindow.nib; sourceTree = "<group>"; };
-		F5B588410156D40B01000001 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/ResourceDocument.nib; sourceTree = "<group>"; };
-		F5B588430156D40B01000001 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		F5B588450156D40B01000001 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; lineEnding = 0; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F5B588460156D40B01000001 /* ResKnife.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ResKnife.icns; sourceTree = "<group>"; };
 		F5B588470156D40B01000001 /* Resource file.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = "Resource file.icns"; sourceTree = "<group>"; };
 		F5B588480156D40B01000001 /* Icon file.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = "Icon file.icns"; sourceTree = "<group>"; };
@@ -433,7 +436,6 @@
 		F5EF83A3020C08E601A80001 /* HexTextView.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = HexTextView.m; sourceTree = "<group>"; };
 		F5EF83A7020C08E601A80001 /* HexWindowController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = HexWindowController.h; sourceTree = "<group>"; };
 		F5EF83A8020C08E601A80001 /* HexWindowController.mm */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.objcpp; path = HexWindowController.mm; sourceTree = "<group>"; };
-		F5EF83C8020C20D701A80001 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/HexWindow.nib; sourceTree = "<group>"; };
 		F5F1071603CCC61E01A8010A /* PasteboardDocument.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = PasteboardDocument.h; sourceTree = "<group>"; };
 		F5F1071703CCC61E01A8010A /* PasteboardDocument.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = PasteboardDocument.m; sourceTree = "<group>"; };
 		F5F1071A03CCFAAC01A8010A /* PasteboardWindowController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = PasteboardWindowController.h; sourceTree = "<group>"; };
@@ -1043,16 +1045,18 @@
 		F5B5880F0156D2A601000001 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 1240;
 			};
 			buildConfigurationList = E13F7F0508F0411100E2A5CB /* Build configuration list for PBXProject "ResKnife" */;
 			compatibilityVersion = "Xcode 2.4";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 1;
 			knownRegions = (
-				English,
-				Japanese,
-				French,
-				German,
+				fr,
+				de,
+				ja,
+				en,
+				Base,
 			);
 			mainGroup = F5B588100156D2A601000001;
 			productRefGroup = F5B588110156D30301000001 /* Products */;
@@ -1336,7 +1340,7 @@
 		0EF7153F122BD0D0005DF94E /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				3D2EE5E204E5C56F00515930 /* English */,
+				7048ED8E26F07A54001B720D /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -1344,7 +1348,7 @@
 		3D0B38B504DEF465005AED5E /* TemplateWindow.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				3D0B38B604DEF465005AED5E /* English */,
+				7048EDA126F07A59001B720D /* Base */,
 			);
 			name = TemplateWindow.nib;
 			sourceTree = "<group>";
@@ -1352,7 +1356,7 @@
 		3D3B99BC04DC16FC0056861E /* ICONWindow.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				3D3B99BD04DC16FC0056861E /* ICONWindow.nib */,
+				7048EDA426F07A59001B720D /* Base */,
 			);
 			name = ICONWindow.nib;
 			sourceTree = "<group>";
@@ -1360,7 +1364,7 @@
 		E1193607099830D200A3A6EA /* FontDocument.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				E1193608099830D300A3A6EA /* English */,
+				7048EDA226F07A59001B720D /* Base */,
 			);
 			name = FontDocument.nib;
 			sourceTree = "<group>";
@@ -1368,7 +1372,7 @@
 		E11936650998552900A3A6EA /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				E11936620998551200A3A6EA /* English */,
+				7048ED8926F07A53001B720D /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -1376,7 +1380,7 @@
 		E1193947099940FD00A3A6EA /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				E1193948099940FD00A3A6EA /* English */,
+				7048ED8D26F07A54001B720D /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -1384,7 +1388,7 @@
 		E18BF7CF069FFC7600F076B8 /* FontWindow.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				E18BF7D0069FFC7600F076B8 /* English */,
+				7048EDA326F07A59001B720D /* Base */,
 			);
 			name = FontWindow.nib;
 			path = English.lproj;
@@ -1393,7 +1397,7 @@
 		F50DFE16036C203F01A8010A /* ResKnife.scriptTerminology */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F50DFE17036C203F01A8010A /* English */,
+				7048ED9726F07A54001B720D /* en */,
 			);
 			name = ResKnife.scriptTerminology;
 			sourceTree = "<group>";
@@ -1401,7 +1405,7 @@
 		F54E6222021B6A0801A80001 /* FindSheet.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F54E6223021B6A0801A80001 /* English */,
+				7048EDA026F07A59001B720D /* Base */,
 			);
 			name = FindSheet.nib;
 			sourceTree = "<group>";
@@ -1409,7 +1413,7 @@
 		F54E622B021D192201A80001 /* CreateResourceSheet.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F54E622C021D192201A80001 /* English */,
+				7048ED9B26F07A58001B720D /* Base */,
 			);
 			name = CreateResourceSheet.nib;
 			sourceTree = "<group>";
@@ -1417,7 +1421,7 @@
 		F5B588360156D40B01000001 /* AboutPanel.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F5B588370156D40B01000001 /* English */,
+				7048ED9926F07A58001B720D /* Base */,
 			);
 			name = AboutPanel.nib;
 			path = Cocoa;
@@ -1426,7 +1430,7 @@
 		F5B588380156D40B01000001 /* Application.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F5B588390156D40B01000001 /* English */,
+				7048ED9A26F07A58001B720D /* Base */,
 			);
 			name = Application.nib;
 			path = Cocoa;
@@ -1435,7 +1439,7 @@
 		F5B5883A0156D40B01000001 /* InfoWindow.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F5B5883B0156D40B01000001 /* English */,
+				7048ED9C26F07A58001B720D /* Base */,
 			);
 			name = InfoWindow.nib;
 			path = Cocoa;
@@ -1444,7 +1448,7 @@
 		F5B5883E0156D40B01000001 /* PrefsWindow.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F5B5883F0156D40B01000001 /* English */,
+				7048ED9D26F07A58001B720D /* Base */,
 			);
 			name = PrefsWindow.nib;
 			path = Cocoa;
@@ -1453,7 +1457,7 @@
 		F5B588400156D40B01000001 /* ResourceDocument.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F5B588410156D40B01000001 /* English */,
+				7048ED9E26F07A58001B720D /* Base */,
 			);
 			name = ResourceDocument.nib;
 			path = Cocoa;
@@ -1462,7 +1466,7 @@
 		F5B588420156D40B01000001 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F5B588430156D40B01000001 /* English */,
+				7048ED9326F07A54001B720D /* en */,
 			);
 			name = InfoPlist.strings;
 			path = Cocoa;
@@ -1471,7 +1475,7 @@
 		F5B588440156D40B01000001 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F5B588450156D40B01000001 /* English */,
+				7048ED9526F07A54001B720D /* en */,
 			);
 			name = Localizable.strings;
 			path = Cocoa;
@@ -1480,7 +1484,7 @@
 		F5EF83C7020C20D701A80001 /* HexWindow.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F5EF83C8020C20D701A80001 /* English */,
+				7048ED9F26F07A59001B720D /* Base */,
 			);
 			name = HexWindow.nib;
 			sourceTree = "<group>";
@@ -1491,12 +1495,14 @@
 		E13F7ED208F0411100E2A5CB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				INFOPLIST_FILE = "Cocoa/Plug-Ins/Hex Editor/Info.plist";
 				OTHER_LDFLAGS = (
 					"-bundle",
 					"-undefined",
 					error,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nickshanks.resknife.hexadecimal;
 				PRODUCT_NAME = "Hexadecimal Editor";
 				WARNING_CFLAGS = (
 					"-Wmost",
@@ -1510,12 +1516,14 @@
 		E13F7ED308F0411100E2A5CB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				INFOPLIST_FILE = "Cocoa/Plug-Ins/Hex Editor/Info.plist";
 				OTHER_LDFLAGS = (
 					"-bundle",
 					"-undefined",
 					error,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nickshanks.resknife.hexadecimal;
 				PRODUCT_NAME = "Hexadecimal Editor";
 				WARNING_CFLAGS = (
 					"-Wmost",
@@ -1529,7 +1537,9 @@
 		E13F7ED608F0411100E2A5CB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				INFOPLIST_FILE = "Cocoa/Plug-Ins/Template Editor/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nickshanks.resknife.templateeditor;
 				PRODUCT_NAME = "Template Editor";
 				WARNING_CFLAGS = (
 					"-Wmost",
@@ -1543,7 +1553,9 @@
 		E13F7ED708F0411100E2A5CB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				INFOPLIST_FILE = "Cocoa/Plug-Ins/Template Editor/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nickshanks.resknife.templateeditor;
 				PRODUCT_NAME = "Template Editor";
 				WARNING_CFLAGS = (
 					"-Wmost",
@@ -1557,8 +1569,10 @@
 		E13F7EDA08F0411100E2A5CB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "-";
 				INFOPLIST_FILE = Cocoa/Info.plist;
-				PREBINDING = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nickshanks.resknife;
 				PRODUCT_NAME = "ResKnife Cocoa";
 				WARNING_CFLAGS = (
 					"-Wmost",
@@ -1572,8 +1586,10 @@
 		E13F7EDB08F0411100E2A5CB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "-";
 				INFOPLIST_FILE = Cocoa/Info.plist;
-				PREBINDING = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nickshanks.resknife;
 				PRODUCT_NAME = "ResKnife Cocoa";
 				WARNING_CFLAGS = (
 					"-Wmost",
@@ -1587,7 +1603,9 @@
 		E13F7EE208F0411100E2A5CB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				INFOPLIST_FILE = "Cocoa/Plug-Ins/Icon Editor/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ulikusterer.resknife.bitmap-editor";
 				PRODUCT_NAME = "Bitmap Editor";
 				WARNING_CFLAGS = (
 					"-Wmost",
@@ -1601,7 +1619,9 @@
 		E13F7EE308F0411100E2A5CB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				INFOPLIST_FILE = "Cocoa/Plug-Ins/Icon Editor/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ulikusterer.resknife.bitmap-editor";
 				PRODUCT_NAME = "Bitmap Editor";
 				WARNING_CFLAGS = (
 					"-Wmost",
@@ -1615,6 +1635,7 @@
 		E13F7EE608F0411100E2A5CB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
 				GCC_WARN_SIGN_COMPARE = NO;
 				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
@@ -1626,6 +1647,7 @@
 					"-framework",
 					AppKit,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nickshanks.resknife.fonteditor;
 				PRODUCT_NAME = "Font Editor";
 				WARNING_CFLAGS = "-Wmost";
 				WRAPPER_EXTENSION = plugin;
@@ -1635,6 +1657,7 @@
 		E13F7EE708F0411100E2A5CB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
 				GCC_WARN_SIGN_COMPARE = NO;
 				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
@@ -1646,6 +1669,7 @@
 					"-framework",
 					AppKit,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nickshanks.resknife.fonteditor;
 				PRODUCT_NAME = "Font Editor";
 				WARNING_CFLAGS = "-Wmost";
 				WRAPPER_EXTENSION = plugin;
@@ -1655,7 +1679,9 @@
 		E13F7EEA08F0411100E2A5CB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				INFOPLIST_FILE = NovaTools/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = "au.com.sutherland-studios.resknife.novatools";
 				PRODUCT_NAME = NovaTools;
 				WARNING_CFLAGS = (
 					"-Wmost",
@@ -1669,7 +1695,9 @@
 		E13F7EEB08F0411100E2A5CB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				INFOPLIST_FILE = NovaTools/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = "au.com.sutherland-studios.resknife.novatools";
 				PRODUCT_NAME = NovaTools;
 				WARNING_CFLAGS = (
 					"-Wmost",
@@ -1683,11 +1711,42 @@
 		E13F7F0608F0411100E2A5CB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = HexFiend;
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
 				STRIP_INSTALLED_PRODUCT = NO;
 			};
 			name = Debug;
@@ -1695,9 +1754,38 @@
 		E13F7F0708F0411100E2A5CB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = HexFiend;
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 			};
 			name = Release;
 		};
